@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "project": "<app-name>",
+  "stage": "G0",
+  "status": "idle",
+  "updated_at": "2026-11-08T00:00:00Z",
+  "gates": {},
+  "blocking": [],
+  "next_action": "Run 01-spec-and-scope: write .pipeline/spec.json and plan.md",
+  "files_touched": []
+}

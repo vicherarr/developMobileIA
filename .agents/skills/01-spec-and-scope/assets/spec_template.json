@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "app": {
+    "name": "Example App",
+    "applicationId": "com.example.app",
+    "namespace": "com.example.app",
+    "minSdk": 24,
+    "targetSdk": 36,
+    "compileSdk": 36,
+    "kotlin": "2.3.20",
+    "ui": "compose-material3",
+    "theme": { "dynamicColor": true, "darkMode": "system" }
+  },
+  "product": {
+    "pitch": "One sentence a user would repeat to a friend.",
+    "audience": "Who uses this and in what situation.",
+    "platforms": ["phone"],
+    "locale": ["en"]
+  },
+  "features": [
+    {
+      "id": "F1",
+      "name": "Capture a todo",
+      "priority": "must",
+      "description": "User can add a todo with a title and see it in the list.",
+      "acceptance": [
+        {
+          "id": "AC-01",
+          "given": "an empty list",
+          "when": "the user enters 'Buy milk' and taps Add",
+          "then": "the list shows one item 'Buy milk' and the input is cleared"
+        },
+        {
+          "id": "AC-02",
+          "given": "a todo list with items",
+          "when": "the app is restarted",
+          "then": "the same items are still shown"
+        }
+      ],
+      "screens": [
+        {
+          "id": "S1",
+          "name": "Home",
+          "states": ["loading", "empty", "error", "content"]
+        }
+      ],
+      "data": [
+        {
+          "entity": "Todo",
+          "fields": ["id:Long", "title:String", "done:Boolean", "createdAt:Instant"],
+          "source": "local",
+          "persistence": "room"
+        }
+      ]
+    }
+  ],
+  "nonGoals": [
+    "No account or login in slice 1",
+    "No cloud sync in slice 1",
+    "No widget or notification in slice 1"
+  ],
+  "constraints": {
+    "offlineFirst": true,
+    "auth": "none",
+    "analytics": "none",
+    "monetization": "none",
+    "perfBudgetMs": 400,
+    "accessibility": "TalkBack labels on every interactive element"
+  },
+  "risks": [
+    {
+      "id": "R1",
+      "risk": "Room schema churn breaks local data",
+      "impact": "med",
+      "mitigation": "Schema export enabled + migration test before G7"
+    }
+  ],
+  "openDecisions": []
+}

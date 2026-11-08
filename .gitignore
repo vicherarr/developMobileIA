@@ -1,0 +1,22 @@
+# Runtime and build output
+.gradle/
+build/
+.cache/
+.kotlin/
+captures/
+*.hprof
+
+# Machine-local configuration and secrets
+local.properties
+*.jks
+*.keystore
+keystore.properties
+
+# Pipeline evidence (local by design; STATE.json and spec.json are kept)
+**/.pipeline/reports/
+**/.pipeline/artifacts/
+
+# IDE
+.idea/
+*.iml
+.DS_Store
